@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device width, initial-scale= 1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>
+        Travel with dog 
+    </title>
+</head>
+<style>
+body {
+  background: white;
+  color: black;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+#blackandwhite{
+    filter: gray;
+    filter: grayscale(100%);
+}
+
+/* HEADER */
+
+header {
+  background-color: black;
+  /*  sorry for the strange urls, I had to upload them to google drive  */
+  background-image: url("http://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_1280.jpg");
+  background-size: 100%;
+  background-position: center;
+  height: 400px;
+  padding: 20px;
+  text-align: center;
+  filter: gray;
+  filter: grayscale(100%);
+  opacity: 0.8;
+
+}
+
+header a {
+  color: aliceblue;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+
+header .mobile {
+  display: none;
+}
+
+header .logo a {
+  /*background-image: url("http://gdurl.com/b9cd");*/
+  font-family: fantasy;
+  color: black;
+  background-size: 300px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  font-size: 30px;
+  /*height: 80px;
+  position: relative;
+  text-indent: -9999999px;
+  top: -30px;
+  width: 300px;*/
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* RESPONSIVE RULES */
+
+@media screen and (max-width: 715px) {
+  header {
+    height: 250px;
+    background-position: 0 -30px;
+  }
+  header .mobile {
+    display: inline-block;
+  }
+  header .desktop {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    height: 200px;
+    background-position: 0 -0px;
+  }
+}
+
+/* FEATURES */
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label {
+    color:#000000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label span {
+    background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/check_radio_sheet.png) -19px top no-repeat;
+}
+section {
+  margin: 8px;
+}
+/* FOOTER */
+
+footer {
+  background: cadetblue;
+  color: white;
+  font-size: 12px;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+</style>
+<header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Travel with family</a></li>
+            <li><a href="partyTravel.html">Party travel</a></li>
+            <li class="mobile"><a href="login.html">Login</a></li>
+            <li class="mobile"><a href="meetTheDriver.html">Meet the Driver</a></li>
+            <li class="logo"><a href="webseite.html">NeverGoBack</a></li>
+            <li class="desktop"><a href="login.html">Login</a></li>
+            <li class="desktop"><a href="meetTheDriver.html">Meet the Driver</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="features">
+            <h2>Choose Destination</h2>
+
+            <form id="form">
+                <input type="checkbox" name="destination" value="Innsbruck-Wien-Budapest" id="c1">
+                <label for="c1"><span></span>Innsbruck-Wien-Budapest (455$)</label><br>
+                <input type="checkbox" name="destination" value="Zurich-Munchen-Wien" id="c2">
+                <label for="c2"><span></span>Zurich-Munchen-Wien (455$)</label><br>
+                <input type="checkbox" name="destination" value="Zurich-Munchen-Wien" id="c3">
+                <label for="c3"><span></span>Innsbruck-Wien-Budapest (455$)</label><br>
+                <input type="checkbox" name="destination" value="Zurich-Lugano-Locarno" id="c4">
+                <label for="c4"><span></span>Innsbruck-Wien-Budapest (455$)</label><br>
+                <input type="checkbox" name="destination" value="Wien-Budapest-Kiew" id="c5">
+                <label for="c5"><span></span>Innsbruck-Wien-Budapest (455$)</label><br>
+                <input type="checkbox" name="destination" value="Wien-Budapest-Zagreb" id="c6">
+                <label for="c6"><span></span>Innsbruck-Wien-Budapest (455$)</label><br>
+        
+                <h2>Choose Date</h2>
+                <input type="date" id="myDate" value="2019-09-19">
+                <br><br>
+                
+                <input type="button" onclick="myFunction()" value="Send order">
+                <br><br>
+                <input type="text" id="order" size="70">
+                <input type="submit" value="Submit">
+                <br><br>
+            </form>
+           
+      </section>
+    
+      <footer>
+        Thalerstrasse 43,9424 Rheineck CH • 555-555-5555 • nevergoback.ch
+      </footer>
+
+      <script>
+          function myFunction() {
+              var destination = document.forms[0];
+              var txt = "";
+              var i;
+              for (i = 0; i < destination.length; i++) {
+                  console.log(destination[i])
+                  if (!destination[i].checked) {
+                     // txt = txt + destination[i].value + " " + myDate;
+                   txt= "Please choose destination";
+                  }else {
+                      txt = ""
+                      txt = txt + destination[i].value + "  " + "am" + " "+document.getElementById("myDate").value;
+                      txt = "Your destination is: " + txt ;
+                      i = 1000;
+                  }
+              }
+              document.getElementById("order").value  = txt;
+             
+          }
+      
+      
+      </script>
+
+
+
+
+</html>
